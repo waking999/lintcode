@@ -15,7 +15,7 @@ public class Solution {
 
         while(!(nums.get(nLen-1)<nums.get(nLen-2))){
             Integer val=nums.get(nLen-1);
-            nums.remove(nLen-1);
+            nums.remove(nLen - 1);
             nums.add(0,val);
         }
         Integer val=nums.get(nLen-1);
