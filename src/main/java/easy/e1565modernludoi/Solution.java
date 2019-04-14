@@ -3,51 +3,29 @@ package easy.e1565modernludoi;
 public class Solution {
     public int modernLudo(int length, int[][] connections) {
         // Write your code here
-        if(length<=6){
+        if (length <= 7) {
             return 1;
         }
-
-        int len=connections.length;
-
-        minCount=0;
-        minCount=Integer.MAX_VALUE;
-        dfs(connections,1,length,0);
-        return minCount;
-
-
-    }
-    private int minCount;
-    private void dfs(int[][] connections,int pos,int length,int count){
-        if(count>=minCount||pos>length){
-            return;
+        int []f = new int[length + 1];
+        int []dp = new int[length + 1];
+        for (int i = 1; i <= length; ++i) {
+            f[i] = i;
+            dp[i] = Integer.MAX_VALUE;
         }
-        if(pos==length){
-            minCount= count;
-            return;
+        dp[1] = 0;
+        for (int[] connection : connections) {
+            f[connection[0]] = Math.max(connection[1], f[connection[0]]);
         }
-//        //jump from current position;
-//        int newPos=findB(connections,pos);
-//        dfs(connections,newPos,length,count);
-
-        //jump from current position+dic;
-        for(int i=1;i<=6;i++){
-            int newPos=pos+i;
-            if(newPos>length){
-                break;
+        for (int i = 2; i <= length; ++i) {
+            if (i - 6 < 1) {
+                dp[i] = 1;
+            } else {
+                for (int j = i-1; j > i-7; j--) {
+                    dp[i] = Math.min(dp[j]+1, dp[i]);
+                }
             }
-            newPos=findB(connections,newPos);
-            dfs(connections,newPos,length,count+1);
+            dp[f[i]] = Math.min(dp[i], dp[f[i]]);
         }
-
-    }
-
-    private int findB(int[][] connections,int a){
-        for (int[] conn : connections) {
-            if (a == conn[0]) {
-                return conn[1];
-            }
-        }
-        return a;
-
+        return dp[length];
     }
 }

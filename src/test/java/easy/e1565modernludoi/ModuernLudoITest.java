@@ -14,22 +14,32 @@ public class ModuernLudoITest {
         int output;
         int seq=1;
 
-        connections=new int[][]{{2,10}};
-        length=10;
-        expect=1;
+//        connections=new int[][]{{2,10}};
+//        length=10;
+//        expect=1;
+//        output=s.modernLudo(length,connections);
+//        VerifyUtil.verify(expect,output,seq++);
+//
+//        connections=new int[][]{{2,8},{6,9}};
+//        length=15;
+//        expect=2;
+//        output=s.modernLudo(length,connections);
+//        VerifyUtil.verify(expect,output,seq++);
+//
+//        connections=new int[][]{{7,9},{8,14}};
+//        length=15;
+//        expect=2;
+//        output=s.modernLudo(length,connections);
+//        VerifyUtil.verify(expect,output,seq++);
+
+        connections=new int[][]{{36,77},{5,54},{5,42},{31,37},{10,36},{15,66},{58,68}};
+        length=86;
+        expect=4;
         output=s.modernLudo(length,connections);
         VerifyUtil.verify(expect,output,seq++);
 
-        connections=new int[][]{{2,8},{6,9}};
-        length=15;
-        expect=2;
-        output=s.modernLudo(length,connections);
-        VerifyUtil.verify(expect,output,seq++);
 
-        connections=new int[][]{{7,9},{8,14}};
-        length=15;
-        expect=2;
-        output=s.modernLudo(length,connections);
-        VerifyUtil.verify(expect,output,seq++);
+
+
     }
 }
