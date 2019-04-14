@@ -35,6 +35,18 @@ public class ListNode {
         }
         return start;
     }
+
+    public static ListNode constructCyclicListNode(int[] nums){
+        ListNode node=constructListNode(nums);
+        ListNode p=node;
+        assert p != null;
+        while(p.next!=null){
+            p=p.next;
+        }
+        p.next=node;
+        return node;
+    }
+
     public static List<Integer> unConstructListNode(ListNode node) {
         return unConstructListNode( node, false);
     }
