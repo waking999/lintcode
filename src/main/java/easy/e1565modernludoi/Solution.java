@@ -11,7 +11,7 @@ public class Solution {
 
         minCount=0;
         minCount=Integer.MAX_VALUE;
-        dfs(connections,0,length,0);
+        dfs(connections,1,length,0);
         return minCount;
 
 
